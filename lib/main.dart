@@ -36,6 +36,7 @@ class LoginScreen extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Image.asset(
@@ -43,43 +44,52 @@ class LoginScreen extends StatelessWidget {
                       fit: BoxFit.cover,
                       width: 200,
                     ),
-                    SizedBox(
-                      width: 300,
-                      child: Padding(
-                        padding: const EdgeInsets.all(18.0),
-                        child: TextField(
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                              ),
-                              prefixIcon: const Icon(Icons.person),
-                              hintText: 'Kullanıcı Kodu',
-                              fillColor: Colors.white,
-                              filled: true),
-                        ),
-                      ),
+                    const SizedBox(
+                      height: 25,
                     ),
                     SizedBox(
                       width: 300,
-                      child: Padding(
-                        padding: const EdgeInsets.all(18.0),
-                        child: TextField(
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                              ),
-                              prefixIcon: const Icon(Icons.lock),
-                              hintText: 'Parola',
-                              suffixIcon: IconButton(
-                                  onPressed: () {},
-                                  icon: Icon(Icons.visibility_off)),
-                              fillColor: Colors.white,
-                              filled: true),
-                        ),
+                      child: TextField(
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            prefixIcon: const Icon(Icons.person),
+                            label: Text(
+                              'Kullanıcı Kodu',
+                              style: TextStyle(fontFamily: 'Tinos'),
+                            ),
+                            fillColor: Colors.white,
+                            filled: true),
                       ),
                     ),
+                    const SizedBox(
+                      height: 15.0,
+                    ),
                     SizedBox(
-                      width: 280,
+                      width: 300,
+                      child: TextField(
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            prefixIcon: const Icon(Icons.lock),
+                            label: Text(
+                              'Parola',
+                              style: TextStyle(fontFamily: 'Tinos'),
+                            ),
+                            suffixIcon: IconButton(
+                                onPressed: () {},
+                                icon: const Icon(Icons.visibility_off)),
+                            fillColor: Colors.white,
+                            filled: true),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    SizedBox(
+                      width: 300,
                       child: ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
@@ -89,7 +99,10 @@ class LoginScreen extends StatelessWidget {
                                     BorderRadius.all(Radius.circular(10.0)))),
                         child: const Text(
                           'GİRİŞ YAP',
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'Tinos',
+                          ),
                         ),
                       ),
                     ),
@@ -98,7 +111,10 @@ class LoginScreen extends StatelessWidget {
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: const Text('Parolamı Unuttum'),
+                      child: const Text(
+                        'Parolamı Unuttum',
+                        style: TextStyle(fontFamily: 'Tinos'),
+                      ),
                     ),
                   ],
                 ),
