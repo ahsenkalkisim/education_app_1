@@ -16,8 +16,15 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  bool isPasswordVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +62,7 @@ class LoginScreen extends StatelessWidget {
                               borderRadius: BorderRadius.circular(10.0),
                             ),
                             prefixIcon: const Icon(Icons.person),
-                            label: Text(
+                            label: const Text(
                               'Kullanıcı Kodu',
                               style: TextStyle(fontFamily: 'Tinos'),
                             ),
@@ -69,17 +76,24 @@ class LoginScreen extends StatelessWidget {
                     SizedBox(
                       width: 300,
                       child: TextField(
+                        obscureText:
+                            !isPasswordVisible, // parolada *yıldız görünümü yapar,
                         decoration: InputDecoration(
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10.0),
                             ),
                             prefixIcon: const Icon(Icons.lock),
-                            label: Text(
+                            label: const Text(
                               'Parola',
                               style: TextStyle(fontFamily: 'Tinos'),
                             ),
                             suffixIcon: IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  setState(() {
+                                    isPasswordVisible =
+                                        !isPasswordVisible; //parolada yıldız görünümünü kapayıp açar
+                                  });
+                                },
                                 icon: const Icon(Icons.visibility_off)),
                             fillColor: Colors.white,
                             filled: true),
